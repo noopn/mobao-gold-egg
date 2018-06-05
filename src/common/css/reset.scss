@@ -1,0 +1,98 @@
+@charset 'UTF-8';
+html,
+body {
+  font-family: Helvetica Neue, Tahoma, Arial, PingFangSC-Regular, Hiragino Sans GB, Microsoft Yahei, sans-serif !important;
+}
+
+blockquote,
+body,
+dd,
+dl,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+p,
+ul {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: 0;
+}
+
+a[href]:active,
+button:active {
+  background-image: -webkit-gradient( linear, left bottom, left top, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0.05)));
+  background-image: linear-gradient( to top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+}
+
+.clear {
+  clear: both;
+}
+
+body.iphone a[href]:active,
+body.iphone button:active {
+  background-image: none;
+}
+
+em {
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  display: inline-block;
+}
+
+p {
+  word-break: break-word;
+}
+
+main {
+  display: block;
+}
+
+output {
+  speak: digits;
+}
+
+html {
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

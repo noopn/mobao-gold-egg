@@ -1,0 +1,124 @@
+ @import "./_variable.scss";
+ input::-webkit-input-placeholder {
+   color: #d2d2d2;
+ }
+
+ input:-ms-input-placeholder {
+   color: #d2d2d2;
+ }
+
+ input:-moz-placeholder {
+   color: #d2d2d2;
+ }
+
+ input::-moz-placeholder {
+   color: #d2d2d2;
+ }
+
+ .page {
+   max-width: 10rem;
+   min-height: 100vh;
+   margin-left: auto;
+   margin-right: auto;
+   .container {
+     position: relative;
+     padding: 1px 0.5rem;
+     box-sizing: border-box;
+     width: 100%;
+     height: 100%;
+   }
+ }
+
+ .mask {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   z-index: 2;
+ }
+
+ .mask-bg {
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, .5);
+ }
+
+ .mask-pop {
+   position: absolute;
+   width: 9rem;
+   height: 8rem;
+   margin: 4rem auto 0;
+   left: 0;
+   right: 0;
+   top: 0;
+   background: url(../img/pop-bg.png) center top no-repeat;
+   background-size: cover;
+ }
+
+ .pop-tit {
+   font-size: 1.2rem;
+   text-align: center;
+   color: #fff;
+   line-height: 1.8rem;
+   height: 1.8rem;
+ }
+
+ .pop-notice-text {
+   font-size: .6rem;
+   margin-top: .5rem;
+   color: #fff;
+   padding: 0 .9rem;
+   text-align: center;
+ }
+
+ .pop-h3 {
+   text-align: center;
+   font-size: .5rem;
+   font-weight: bold;
+   margin-top: .5rem;
+   color: #333;
+ }
+
+ .pop-h3 b {
+   color: #f14165;
+   font-size: .6rem;
+ }
+
+ .btn-group {
+   text-align: center;
+   margin-top: .9rem;
+ }
+
+ .btn-item {
+   display: inline-block;
+   font-size: .5rem;
+   color: #fff;
+   padding: .2rem .6rem;
+   border-radius: .5rem;
+   margin: 0 .2rem;
+ }
+
+ .btn-blue {
+   background: $blue;
+ }
+
+ .btn-pink {
+   background: $pink;
+ }
+
+ .go-back {
+   position: absolute;
+   width: 100%;
+   left: 0;
+   top: 0;
+   &-a {
+     display: inline-block;
+     margin: .2rem 0;
+     padding: 0 .5rem;
+   }
+   .iconfont {
+     font-size: .7rem;
+     color: $blue;
+   }
+ }

@@ -1,0 +1,87 @@
+
+@import "css/_variable.scss";
+.page-rank{
+  background: url(../img/rank-bg.jpg) center no-repeat;
+  background-size: cover;
+}
+.header-rank{
+  padding-top: .5rem;
+}
+.rank-head-img{
+  display: block;
+  width: 80%;
+  margin: -1rem auto ;
+}
+.rank-tit {
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 0.6rem;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  height: 1rem;
+}
+.rank-tit-span {
+  display: inline-block;
+  color: #fff;
+  padding: 0.1rem 0;
+  border-bottom: 4px solid $pink;
+}
+.rank-module {
+  position: absolute;
+  margin-top: 5.7rem;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.rank-list {
+    background: #fff;
+    list-style: none;
+    padding: 0 0.2rem ;
+}
+.rank-list-item {
+  height: 1.5rem;
+  display: flex;
+  border-bottom: 1px solid #dfdfdf;
+  font-size: 0.5rem;
+  flex: 1 0 1rem;
+  align-items: center;
+}
+.rank-list-item .rank-num {
+  width: 1.2rem;
+  padding: 0.1rem 0.2rem;
+  text-align: center;
+}
+.rank-num svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.rank-list-item .rank-tel {
+  width: 3rem;
+  text-align: center;
+}
+.rank-list-item .rank-money {
+  flex: 1;
+  text-align: right;
+  padding-right: 0.4rem;
+  color: #ffdd50;
+}
+.rank-money img {
+  width: 0.5rem;
+  height: 0.5rem;
+  vertical-align: text-bottom;
+}
+.my-state {
+  background: #403a92;
+  color: #fff;
+  position: fixed;
+  left: 0.2rem;
+  right: 0.2rem;
+  bottom: 0;
+  border-radius: 0.4rem 0.4rem 0 0;
+  z-index: 1;
+}

@@ -1,0 +1,32 @@
+.page-rule {
+  background-color: #964c1b;
+  background: url(../img/rule-bg.jpg) left top no-repeat; // background: url(../img/rule-bg.jpg) left top no-repeat, url(../img/rule-bg-brown.jpg) repeat;
+  background-size: 100%; // background-size: 100%, 60px;
+}
+
+.rule-wrap {
+  width: 8.6rem;
+  margin: 70% auto 1.5rem;
+  background: #fff;
+  background: rgba(241, 244, 248, 0.8);
+  border-radius: .2rem;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  padding: 0 .5rem;
+  box-sizing: border-box;
+}
+
+.rule-wrap section {
+  margin: .2rem 0;
+}
+
+.rule-wrap h3 {
+  font-size: .7rem;
+  color: #f02c0c;
+}
+
+.rule-wrap p {
+  font-size: .44rem;
+  line-height: 1.4;
+  font-weight: bold;
+}

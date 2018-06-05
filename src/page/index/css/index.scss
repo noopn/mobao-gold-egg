@@ -1,0 +1,389 @@
+@import "css/_variable.scss";
+@import "css/keyfram.scss";
+.page-main {
+  background: url(../../../common/img/gold-egg.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.logout-btn {
+  display: none;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  .iconfont {
+    color: $blue;
+  }
+}
+
+.user-login {
+  position: relative;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 1);
+  padding: 0.6rem 0.5rem;
+  border-radius: 0.4rem;
+  margin-top: 6rem;
+}
+
+.user-login #login,.mode{
+  display: inline-block;
+  color: #fff;
+  font-size: 0.4rem;
+  border-radius: 0.5rem;
+  margin: 0 .1rem;
+}
+#login{
+  padding: 0.2rem 1.4rem;
+  background: #d23e60;
+}
+.mode{
+  padding: 0.2rem 1rem;
+  background: #35a5f1;
+}
+.user-login span {
+  padding: 0.15rem 0;
+  float: left;
+  font-size: 0.4rem;
+}
+
+.user-login span b {
+  color: #e03565;
+}
+
+.main-egg-img {
+  width: 8rem;
+  margin: -3rem auto 2rem;
+  display: block;
+}
+
+.user-center {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  border-radius: 0.4rem;
+  margin-top: 7.5rem;
+}
+
+.header-img-box {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.2rem;
+  float: left;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-header-img {
+  width: 100%;
+  height: 100%;
+}
+
+.user-name {
+  overflow: hidden;
+  display: table-cell;
+  font-size: 0.5rem;
+  color: #fff;
+  line-height: 1rem;
+}
+
+.gold-box {
+  overflow: hidden;
+  margin-top: 0.2rem;
+  padding-left: 0.2rem;
+  line-height: 0.8rem;
+  position: relative;
+}
+
+.gold-box img {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+.my-gold {
+  display: inline-block;
+  font-size: 0.4rem;
+  color: #fff;
+  margin-left: 0.8rem;
+  width: 1.5rem;
+}
+
+.more-gold {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  line-height: 0.6rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.4rem;
+  margin-left: 0.2rem;
+  border-radius: 50%;
+}
+
+.level-a {
+  position: absolute;
+  color: #fff;
+  font-size: 0.4rem;
+  padding: 0.1rem;
+  padding: 0.25rem 0;
+  line-height: 1;
+  width: 2.5rem;
+  text-align: center;
+  margin-left: 0.2rem;
+  border-radius: .2rem;
+}
+
+.level-a.more-gold_pay {
+  background: $pink;
+  bottom: .2rem;
+  right: .5rem;
+}
+
+.level-a.logout {
+  // background: url(../img/logout-bg.png) no-repeat center;
+  // background-size: 100% 100%;
+  background: $blue;
+  top: .4rem;
+  right: .5rem;
+}
+
+.game-group {
+  margin-top: .8rem;
+  font-size: 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-left: -.4rem;
+}
+
+.game-item {
+  display: inline-block;
+  width: 3.5rem;
+  height: 1.5rem;
+  margin: 0 .2rem;
+}
+
+.game-item:nth-child(1) {
+  width: 3.2rem;
+}
+
+.game-item:nth-child(2) {
+  width: 3.8rem;
+}
+
+.start-game {
+  position: relative;
+  background: url(../img/go.png) center no-repeat;
+  background-size: contain;
+  animation: zoom 1s ease-in-out .5s infinite;
+}
+
+.rule-link {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  right: -.2rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.rule-link img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.ranking {
+  background: url(../img/rankings.png) center no-repeat;
+  background-size: contain;
+}
+
+.rule-sm {
+  margin-top: .2rem;
+  .rule-tit {
+    font-size: .5rem;
+    font-weight: bold;
+  }
+  p {
+    font-size: .4rem;
+  }
+}
+
+// 下面是弹出层
+.mask_index {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 2;
+}
+
+.mask_index .mask_wrapper,
+.mask_pay .mask_wrapper {
+  position: relative;
+  z-index: 3;
+  width: 9rem;
+  height: 8rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 25%;
+  text-align: center;
+  box-sizing: border-box;
+  background: url(../../../common/img/pop-bg.png) no-repeat center;
+  background-size: cover;
+}
+
+.close_wrapper,
+  {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background: url(../img/close.png) center no-repeat;
+  background-size: 1rem 1rem;
+  right: 0;
+  top: -.5rem;
+}
+
+.login-logo {
+  width: 4.5rem;
+  margin-top: .4rem;
+}
+
+.login-wrapper input {
+  height: 1rem;
+  padding: 0.05rem 0.2rem;
+  font-size: 0.4rem;
+  border-radius: 0.1rem;
+  background: rgba(0, 0, 0, 0.3);
+  outline: none;
+  color: #fff;
+  border: none;
+}
+
+.login-wrapper .userName {
+  margin-top: 1rem;
+  width: 80%;
+}
+
+.login-wrapper .verCode {
+  width: 46%;
+  margin-top: .2rem;
+}
+
+.mask_index .verCode {
+  text-align: center;
+}
+
+.verCodeSendBtn {
+  display: inline-block;
+  width: 30%;
+  height: 1rem;
+  border-radius: .5rem;
+  background: $blue;
+  line-height: 1rem;
+  font-size: 0.5rem;
+  color: #fff;
+  text-align: center;
+  margin-left: 4%;
+  border-radius: .4rem;
+}
+
+.verCodeSendBtn.active {
+  background: $gray;
+}
+
+.mask_index .tips,
+.mask_pay .tips {
+  border-radius: 0.4rem;
+  background-image: url(../img/close.png);
+  background-position: 0.15rem center;
+  background-repeat: no-repeat;
+  background-size: 0.45rem 0.45rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-indent: 0.45rem;
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 0.05rem 0.3rem;
+  display: none;
+  margin: 0.1rem auto;
+  line-height: 0.6rem;
+  text-align: center;
+}
+
+.loginBtn {
+  width: 48%;
+  display: inline-block;
+  background: $blue;
+  line-height: 0.8rem;
+  font-size: 0.5rem;
+  color: #fff;
+  text-align: center;
+  margin: .5rem .2rem 0;
+  padding: .05rem 0;
+  border-radius: .4rem;
+}
+
+.loginBtn.active {
+  background: $gray;
+}
+
+.mask_pay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 3;
+}
+
+.mask_pay .login-wrapper h1 {
+  font-size: 0.6rem;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+.mask_pay .login-wrapper p {
+  text-align: center;
+  line-height: 0.6rem;
+  padding: 0.6rem 1rem 0;
+  font-size: 0.5rem;
+  color: #fff;
+  word-break: break-word;
+}
+
+.mask_pay .login-wrapper .loginBtn {
+  background: #d23e60;
+  width: 70%;
+  margin-top: 1.5rem;
+}
+
+.mask_pay .login-wrapper .cancelBtn {
+  background: #35a5f1;
+  width: 70%;
+}
+
+.mask_pay .login-wrapper .loginBtn,
+.mask_pay .login-wrapper .cancelBtn,
+  {
+  width: 30%;
+  display: inline-block;
+  line-height: 0.8rem;
+  font-size: 0.5rem;
+  color: #fff;
+  text-align: center;
+  margin: 0.5rem 2% 0;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.3rem;
+}
