@@ -7,6 +7,8 @@ const entry = {
   rule: "./src/page/rule/js/rule.js",
   goldegg: "./src/page/goldegg/js/goldegg.js",
   rank: "./src/page/rank/js/rank.js",
+  cash: "./src/page/cash/js/cash.js",
+  test: "./src/page/test/js/test.js",
 };
 const pages = [
   // 用户中心页面
@@ -41,6 +43,23 @@ const pages = [
     // inject: "head",
     chunks: ["commons", "rank", "styles"],
     filename: "rank.html",
+    favicon: ''
+  }),
+  // 提现
+  new HtmlWebpackPlugin({
+    title: "Cash",
+    template: "./src/page/cash/cash.html",
+    // inject: "head",
+    chunks: ["commons", "cash", "styles"],
+    filename: "cash.html",
+    favicon: ''
+  }),
+  new HtmlWebpackPlugin({
+    title: "test",
+    template: "./src/page/test/test.html",
+    // inject: "head",
+    chunks: ['test'],
+    filename: "test.html",
     favicon: ''
   }),
 ]

@@ -32,7 +32,7 @@
   margin: 0 .1rem;
 }
 #login{
-  padding: 0.2rem 1.4rem;
+  padding: 0.2rem .4rem;
   background: #d23e60;
 }
 .mode{
@@ -132,18 +132,24 @@
   padding: 0.1rem;
   padding: 0.25rem 0;
   line-height: 1;
-  width: 2.5rem;
+  width: 2.2rem;
   text-align: center;
   margin-left: 0.2rem;
-  border-radius: .2rem;
 }
 
 .level-a.more-gold_pay {
   background: $pink;
   bottom: .2rem;
   right: .5rem;
+  border-radius: 0.5rem;
+  
 }
-
+.level-a.get-cash {
+  background: #35a5f1;
+  bottom: 0.2rem;
+  right:  2.8rem;
+  border-radius: 0.5rem;
+}
 .level-a.logout {
   // background: url(../img/logout-bg.png) no-repeat center;
   // background-size: 100% 100%;
@@ -226,7 +232,33 @@
   display: none;
   z-index: 2;
 }
+.mask_index .login-wrapper .index-btn,
+.mask_index .login-wrapper .login-btn,
+.mask_reg .login-wrapper .loginBtn,
+.mask_pay .login-wrapper .loginBtn,
+.mask_pay .login-wrapper .cancelBtn {
+  width: 60%;
+  display: block;
+  background: #a6a6a6;
+  line-height: 0.8rem;
+  font-size: 0.5rem;
+  color: #fff;
+  text-align: center;
+  margin:.1rem auto;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.3rem;
+}
+.mask_index .login-wrapper .next-btn.active,
+.mask_index .login-wrapper .login-btn.active {
+  background: #35a5f1;
+}
+#toregister,#userlogin,#getNewPassword{
+  background: #d23e60;
 
+}
+#tologin{
+  background: #35a5f1;
+}
 .mask_index .mask_wrapper,
 .mask_pay .mask_wrapper {
   position: relative;
@@ -242,21 +274,31 @@
   background: url(../../../common/img/pop-bg.png) no-repeat center;
   background-size: cover;
 }
-
-.close_wrapper,
-  {
+.mask_wrapper h1{
+  font-size: .8rem;
+  color: #fff;
+  line-height: .8rem;
+  padding: .5rem 0;
+}
+.close_wrapper {
   position: absolute;
   width: 1rem;
   height: 1rem;
-  background: url(../img/close.png) center no-repeat;
+  background: url(../../../common/img/close.png) center no-repeat;
   background-size: 1rem 1rem;
   right: 0;
   top: -.5rem;
 }
 
-.login-logo {
+.login-logo,
+.signin-logo {
   width: 4.5rem;
-  margin-top: .4rem;
+  margin: 0.4rem;
+}
+.login-wrapper .login-input {
+  display: block;
+  margin: .1rem auto;
+  width: 80%;
 }
 
 .login-wrapper input {
@@ -269,15 +311,18 @@
   color: #fff;
   border: none;
 }
-
+.step-p{
+  padding:0 .8rem;
+  margin: .2rem 0;
+  font-size: .5rem;
+  color: #fff;
+}
 .login-wrapper .userName {
-  margin-top: 1rem;
   width: 80%;
 }
 
 .login-wrapper .verCode {
   width: 46%;
-  margin-top: .2rem;
 }
 
 .mask_index .verCode {
@@ -305,7 +350,7 @@
 .mask_index .tips,
 .mask_pay .tips {
   border-radius: 0.4rem;
-  background-image: url(../img/close.png);
+  background-image: url(../../../common/img/close.png);
   background-position: 0.15rem center;
   background-repeat: no-repeat;
   background-size: 0.45rem 0.45rem;
@@ -386,4 +431,9 @@
   margin: 0.5rem 2% 0;
   border-radius: 0.5rem;
   padding: 0.1rem 0.3rem;
+}
+#goGetPassWord,#register{
+  padding: .1rem 0;
+  text-decoration: underline;
+  color: #fff;
 }

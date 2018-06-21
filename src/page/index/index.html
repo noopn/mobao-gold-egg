@@ -35,12 +35,14 @@
           <span class="my-gold">-</span>
         </div>
         <!-- <div class="level-a logout ">log out</div> -->
-        <div class="level-a more-gold_pay">Deposit</div>
+        <div class="level-a get-cash">Withdraw</div>
+        <div class="level-a more-gold_pay">Top up</div>
       </section>
       <section class="user-login">
         <div class="mode" id="J_mode">Light Site</div>
-        <div href="javascript:void(0);" id="login">Login</div>
-        <span>Login to win <b style="font-size:.5rem;">20</b> to
+        <div href="javascript:void(0);" id="login">Login & Register</div>
+        <span>Login to win
+          <b style="font-size:.5rem;">20</b> to
           <b style="font-size:.5rem;">500,000</b> Ksh</span>
         <div class="clear"></div>
         <div class="rule-sm">
@@ -60,16 +62,53 @@
       <img src="./img/egg-img.png" alt="egg" class="main-egg-img" />
     </div>
   </div>
-  <div class="mask_index">
+  <div class="mask_index" id='index-log1' style="display: none">
     <div class="mask_wrapper">
       <div class="login-wrapper">
         <div class="close_wrapper"></div>
-        <img src="./img/login-tit.png" alt="" class="login-logo" />
+        <img src="./img/login-tit.png" alt="" class="login-logo">
+        <div id='J_step'>
+          <input type="text" class="login-input userName" placeholder="Enter phone number" autocomplete="off" />
+          <input type="password" class="login-input password" placeholder="Enter password" autocomplete="off" />
+          <div class="index-btn" id="userlogin">Login</div>
 
-        <input type="text" class="userName" placeholder="Enter your phone number" />
-        <input type="text" class="verCode" placeholder="Verification code" />
-        <div class="verCodeSendBtn">Send</div>
-        <div class="loginBtn active">Login & register</div>
+          <div id="register">Greate my account</div>
+          <div id='goGetPassWord'>Forgot my password >></div>
+        </div>
+      </div>
+      <div class="tips"></div>
+    </div>
+  </div>
+  <div class="mask_index" id='index-log2' style="display: none">
+    <div class="mask_wrapper">
+      <div class="login-wrapper">
+        <div class="close_wrapper"></div>
+        <h1>Create Account</h1>
+        <div id='J_step'>
+          <input type="text" class="login-input newUserName" placeholder="Enter phone number" autocomplete="off" />
+          <input type="text" class="login-input newPassword" placeholder="8-16 number or letters" autocomplete="off" />
+          <input type="text" class="verCode" placeholder="Verification code" autocomplete="off" />
+          <div href="javascript:void(0);" class="verCodeSendBtn">Get</div>
+          <div class="index-btn" id="toregister">Sign Up</div>
+          <div style="color: #fff;margin: .2rem auto;width: 40%;text-decoration: underline;" class="tologin">Log in</div>
+        </div>
+      </div>
+      <div class="tips"></div>
+    </div>
+  </div>
+  <div class="mask_index" id='index-log3' style="display: none">
+    <div class="mask_wrapper">
+      <div class="login-wrapper">
+        <div class="close_wrapper"></div>
+        <h1>Find Password</h1>
+        <div id='J_step'>
+          <input type="text" class="login-input getUserName" placeholder="Enter phone number" autocomplete="off" />
+          <input type="text" class="login-input getPassword" placeholder="8-16 number or letters" autocomplete="off" />
+          <input type="text" class="verCode" placeholder="Verification code" autocomplete="off" />
+          <div href="javascript:void(0);" class="verCodeSendBtn" data-forgot="true">Get</div>
+          <div class="index-btn" id="getNewPassword">Submit</div>
+          <div style="color: #fff;margin: .2rem auto;width: 40%;text-decoration: underline;" class="tologin">Log in</div>
+        </div>
       </div>
       <div class="tips"></div>
     </div>

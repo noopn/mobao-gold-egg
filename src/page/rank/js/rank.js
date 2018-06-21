@@ -16,7 +16,7 @@ $(() => {
       type: "post",
       url: url + "challenge/dailyRank",
       data: {
-        token: localStorage.getItem("tokenCode"),
+        token: localStorage.getItem("tokenCodeEgg"),
         page: 1,
         limit: 10
       },

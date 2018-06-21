@@ -7,104 +7,203 @@ import "css/reset.scss";
 import "css/common.scss";
 import "font/iconfont.css";
 import "../css/index.scss";
+// if (!(navigator.userAgent.indexOf('Android') > -1) && !/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+//   location.href = url + "geggs";
+// }
 if ((navigator.userAgent.indexOf('Opera Mini') > -1) || Object.prototype.toString.call(window.operamini) ===
   "[object OperaMini]" || !"onresize" in window) {
-  location.href = url+"geggs";
+  location.href = url + "geggs";
 }
 /*首页相关 --- wyj 2018 05 03 */
 var accountLength = 9; //登陆账号长度
 var reg_step = 1; //记录用户注册当前到第几部
 var reg_account = "";
 var fromeGame = false;
+var verCode = '';
+var newUserName = '';
+var newPassword = '';
+var getUserName = '';
+var getPassword = '';
+var userName = '';
 $(function () {
   //判断用户token是否存在
   userInfo();
-  stepShow();
   //点击登陆按钮
   $("#login").on("click", function () {
-    $(".mask_index").fadeIn();
-  });
+    hideTips(".mask_index .tips");
+    $("#index-log1").fadeIn();
 
-  //用户注册
-  $(".mask_index .reg").on("click", function () {
-    $(".mask_index").fadeOut();
-    $(".mask_reg").fadeIn();
   });
+  $('#register').click(function () {
+    hideTips(".mask_index .tips");
 
-  //返回用户登陆
-  $(".mask_reg .reg").on("click", function () {
-    $(".mask_reg").fadeOut();
-    $(".mask_index").fadeIn();
+    $(".mask_index").hide();
+    $("#index-log2").show();
+    newUserName = userName;
+    $('.newUserName').val(userName);
+  })
+  $(".tologin").click(function () {
+    hideTips(".mask_index .tips");
+
+    $(".mask_index").hide();
+    $("#index-log1").show();
+
+  })
+  $("#goGetPassWord").click(function () {
+    hideTips(".mask_index .tips");
+
+    $(".mask_index").hide();
+    $("#index-log3").show();
+    getUserName = userName;
+    $('.getUserName').val(userName);
+  })
+  //关闭弹出层--充值
+  $(".mask_pay .close_wrapper,.mask_pay .cancelBtn").on("click", function () {
+    $(".mask_pay").fadeOut();
   });
-
   //关闭弹出层--登陆
   $(".mask_index .close_wrapper").on("click", function () {
     $(".mask_index").fadeOut();
   });
-
-  //关闭弹出层--注册
-  $(".mask_reg .close_wrapper").on("click", function () {
-    $(".mask_reg").fadeOut();
-    //对注册提示进行初始化
-    $(".mask_reg .tips").text(
-      "Phone number must be" + accountLength + " digit"
-    );
-    stepShow();
-  });
-
   //充值成功，刷新余额
   $(".mask_pay .loginBtn").on("click", function () {
     getUserCoin(getUserCoinSuccess);
     $(".mask_pay").fadeOut();
   });
+  function bindLoginBtn() {
+    var username = '';
+    var pwd = '';
+    $('.userName').on('input change', function () {
+      username = $(this).val();
+    })
+    $('.password').on('input change', function () {
+      pwd = $(this).val();
+    })
 
-  //关闭弹出层--充值
-  $(".mask_pay .close_wrapper,.mask_pay .cancelBtn").on("click", function () {
-    $(".mask_pay").fadeOut();
-  });
-
-  //发送验证码按钮 -- 用户注册
-  $(".mask_reg .verCodeSendBtn").on("click", function () {
-    if (!$(this).hasClass("dis")) {
-      sendVerCode(reg_account, sendVerCodeSuccess);
+    $('#userlogin').click(function () {
+      loginOld(username, pwd);
+    })
+  }
+  bindLoginBtn();
+  $(".userName").on('input', function () {
+    userName = $(this).val();
+  })
+  $(".newUserName").on('input', function () {
+    newUserName = $(this).val();
+  })
+  $('.newPassword').on('input', function () {
+    newPassword = $(this).val();
+  })
+  $(".verCode").on('input', function () {
+    verCode = $(this).val();
+  })
+  $('.getUserName').on('input', function () {
+    getUserName = $(this).val();
+  })
+  $(".getPassword").on('input', function () {
+    getPassword = $(this).val();
+  })
+  $(".mask_index .verCodeSendBtn").on("click", function () {
+    if ($(this).data('forgot') == true) {
+      if (getPassword.length <= 3) {
+        showTips(".mask_index .tips", 'Password is too short');
+      } else {
+        if (!$(this).hasClass("dis")) {
+          sendVerCode(getUserName, sendVerCodeSuccess);
+        }
+      }
+    } else {
+      if (newPassword.length <= 3) {
+        showTips(".mask_index .tips", 'Password is too short');
+      } else {
+        if (!$(this).hasClass("dis")) {
+          console.log(newUserName)
+          sendVerCode(newUserName, sendVerCodeSuccess);
+        }
+      }
     }
   });
-  $(".userName").on("input", function () {
-    var val = $(this).val();
-    if (!/^\d+$/g.test(val)) {
-      $(this).val(val.match(/\d+/g) ? val.match(/\d+/g)[0] : "");
-    }
-  });
+  //登陆按钮事件
+  function loginOld(newUserName, newPassword) {
+    $.ajax({
+      url: url + 'acc/phoneLogin',
+      data: {
+        phone: newUserName,
+        pwd: newPassword
+      },
+      success: function (ret) {
+        ret = $.parseJSON(ret);
+        if (ret.code === "0") {
+          $(".mask_index").fadeOut();
+          localStorage.setItem("tokenCodeEgg", ret.data.token);
+          localStorage.setItem("nickName", ret.data.phone);
+          $(".logout-btn").show();
+          userInfo();
+        } else {
+          showTips(".mask_index .tips", "Login Error:Invalid account or password.");
+          // if (ret.code === "password.error") {
+          //   showTips(".mask_index .tips", "Error passowrd");
+          // } else if (ret.code === "login.overLimit") {
+          //   showTips(".mask_index .tips", "Wrong password input reaches the upper limit<br/>please try again later");
+          // } else if (ret.code === "para.error") {
+          //   showTips(".mask_index .tips", "Invalid password or phone number");
+          // } else if (ret.code === "user.notExist") {
+          //   showTips(".mask_index .tips", "Your count is not exist");
+          // }
+        }
+      }
+    })
+  }
+  $("#toregister").on("click", function () {
+    $.ajax({
+      url: url + "acc/phoneReg",
+      data: {
+        phone: newUserName,
+        verifyCode: verCode,
+        pwd: newPassword
+      },
+      success: function (ret) {
+        ret = $.parseJSON(ret);
+        console.log(url + "acc/phoneReg", ret, '==============获取注册返回值')
+        if (ret.code === "0") {
+          loginOld(newUserName, newPassword);
+        } else {
+          if (ret.code === 'user.exist') {
+            showTips(".mask_index .tips", "user.exist");
+          }
+        }
+      }
+    })
+  })
   $("#J_rank").on("click", function () {
     location.href = localUrl + "rank.html";
   })
   $("#J_mode").on("click", function () {
     location.href = url + "geggs";
   })
-  //发送验证码按钮 -- 用户登陆
-  $(".mask_index .verCodeSendBtn").on("click", function () {
-    var account = parseInt($.trim($(".mask_index .userName").val())).toString();
-    if (account.length == 0 || account === "") {
-      showTips(".mask_index .tips", "Input you number");
-      $(".mask_index .userName").focus();
-      return;
-    }
-    if (account.length != accountLength) {
-      showTips(
-        ".mask_index .tips",
-        "Phone number must be " + accountLength + " digit"
-      );
-      $(".mask_index .userName").focus();
-      return;
-    }
-    hideTips(".mask_index .tips");
-    reg_account = account;
-
-    if (!$(this).hasClass("dis")) {
-      sendVerCode(reg_account, sendVerCodeSuccess);
-    }
-  });
-
+  $(".get-cash").click(function () {
+    console.log(localStorage.getItem('tokenCodeEgg'))
+    location.href = localUrl + 'cash.html';
+  })
+  $("#getNewPassword").click(function () {
+    $.ajax({
+      url: url + "acc/findPwd",
+      data: {
+        phone: getUserName,
+        verifyCode: verCode,
+        pwd: getPassword
+      },
+      success: function (ret) {
+        ret = $.parseJSON(ret);
+        console.log(url + "acc/findPwd", ret, '==============获取注册返回值')
+        if (ret.code === "0") {
+          loginOld(getUserName, getPassword);
+        } else {
+          showTips(".mask_index .tips", "para error");
+        }
+      }
+    })
+  })
   //充值按钮
   $(".more-gold_pay").on("click", function () {
     if ($(this).hasClass("reCoin")) {
@@ -120,102 +219,17 @@ $(function () {
     $(this).hide();
     localStorage.clear();
     userInfo();
-    stepShow();
   });
   //进入PK场
   $("#J_gold-egg").on("click", function () {
     localStorage.setItem("startGoldEgg", null);
-    if (localStorage.getItem("tokenCode") != undefined) {
+    if (localStorage.getItem("tokenCodeEgg") != undefined) {
       location.href = localUrl + "goldegg.html";
     } else {
       fromeGame = true;
       $("#login").click();
     }
   });
-
-  //登陆按钮事件
-  var bindLoginBtn = function () {
-    $(".mask_index .loginBtn").on("click", function () {
-      var verCode = $.trim($(".mask_index .verCode").val());
-      if (verCode.length !== 4) {
-
-        showTips(
-          ".mask_index .tips",
-          "code must 4 digit"
-        );
-        return false;
-      }
-      if (verCode.length == 0 || verCode === "") {
-        showTips(".mask_index .tips", "请输入您收到的验证码");
-        $(".mask_index .verCode").focus();
-        return;
-      }
-      hideTips(".mask_index .tips");
-      //校验验证码
-      checkVerCode(
-        verCode,
-        parseInt($.trim($(".mask_index .userName").val())).toString(),
-        checkVerCodeSuccess
-      );
-    });
-  }
-
-
-  //用户名验证
-  $(".mask_reg .loginBtn").on("click", function () {
-    if (reg_step === 1) {
-      var account = $.trim($(".mask_reg .userName").val());
-      if (account.length == 0 || account === "") {
-        showTips(".mask_reg .tips", "Input your number");
-        $(".mask_reg .userName").focus();
-        return;
-      }
-      if (account.length != accountLength) {
-        showTips(
-          ".mask_reg .tips",
-          "Phone number must be " + accountLength + " digit"
-        );
-        $(".mask_reg .userName").focus();
-        return;
-      }
-      hideTips(".mask_reg .tips");
-      reg_account = account;
-      userVerificationSuccess();
-    } else if (reg_step === 2) {
-      var pwd = $.trim($(".mask_reg .userPwd").val());
-      var rePwd = $.trim($(".mask_reg .reUserPwd").val());
-
-      if (pwd.length == 0 || pwd === "") {
-        showTips(".mask_reg .tips", "Input verification code");
-        $(".mask_reg .userPwd").focus();
-        return;
-      }
-      if (rePwd.length == 0 || rePwd === "") {
-        showTips(".mask_reg .tips", "Confirm your password again");
-        $(".mask_reg .reUserPwd").focus();
-        return;
-      }
-      if (rePwd != pwd) {
-        showTips(".mask_reg .tips", "The two passwords differ");
-        $(".mask_reg .userPwd").focus();
-        return;
-      }
-      hideTips(".mask_reg .tips");
-
-      pwdConsistent();
-    } else {
-      var verCode = $.trim($(".mask_reg .verCode").val());
-      if (verCode.length == 0 || verCode === "") {
-        showTips(".mask_reg .tips", "Input verification code");
-        $(".mask_reg .verCode").focus();
-        return;
-      }
-      hideTips(".mask_reg .tips");
-      //校验验证码
-      checkVerCode(verCode, reg_account, checkVerCodeSuccess);
-    }
-  });
-
 
   //发送验证码倒计时
   var countdown = 30;
@@ -242,6 +256,9 @@ $(function () {
     $(el)
       .text(content)
       .css("display", "inline-block");
+    setTimeout(function () {
+      hideTips(el);
+    }, 3000);
   }
 
   //隐藏tips
@@ -249,24 +266,6 @@ $(function () {
     $(el).fadeOut();
   }
 
-  //根据标识显示对应的注册step
-  function stepShow() {
-    $(".step").hide();
-    //显示当前步骤
-    $(".step_" + reg_step).show();
-    var smallLabel = $(".mask_reg small");
-    var btn = $(".mask_reg .loginBtn");
-    if (reg_step == 1) {
-      smallLabel.html("<b>1/2</b>&nbsp;Input you unmber");
-      btn.text("Next");
-    } else if (reg_step == 2) {
-      smallLabel.html("<b>2/3</b>&nbsp;Set a password for your account ");
-      btn.text("Next");
-    } else {
-      smallLabel.html("<b>2/2</b>&nbsp;Make sure we can reach you");
-      btn.text("Success!");
-    }
-  }
 
   /**
    * 用户登陆
@@ -279,25 +278,6 @@ $(function () {
       password: pwd
     };
     doAjaxCall(url + "acc/unameOrEmailLogin", data, callback);
-  }
-
-  /**
-   * 用户登陆成功操作
-   * @param {*} data
-   */
-  function userLoginSuccess(data) {
-    console.log(data)
-    localStorage.setItem("tokenCode", data.data.token);
-    localStorage.setItem("nickName", data.data.phone);
-    userInfo();
-
-    $(".mask_index").fadeOut();
-  }
-
-  //用户注册---用户名验证成功操作
-  function userVerificationSuccess(data) {
-    reg_step = 3;
-    stepShow();
   }
 
   /**
@@ -314,18 +294,12 @@ $(function () {
     doAjaxCall(url + "vc/sendSmsVerifyCode", data, callback);
   }
 
-  /**
-   * 发送验证码成功
-   * @param {*} data
-   */
-
 
 
   function sendVerCodeSuccess(data) {
-    $(".verCodeSendBtn").addClass("active");
-    $(".loginBtn").removeClass("active");
-    bindLoginBtn();
     settime($(".verCodeSendBtn"));
+    $(".verCodeSendBtn").addClass("active");
+    $(".login-btn.register").addClass("active");
     //alert(data.data);
   }
 
@@ -342,29 +316,6 @@ $(function () {
     doAjaxCall(url + "acc/phoneVerifyCodeLogin", data, callback);
   }
 
-  /**
-   * 验证码校验成功
-   * @param {*} data
-   */
-  function checkVerCodeSuccess(data) {
-    reg_step = 1;
-    if (data.code !== "0") {
-      showTips(
-        ".mask_index .tips",
-        "Verification code error!"
-      );
-      return false;
-    }
-    $(".mask_reg,.mask_index").fadeOut();
-    localStorage.setItem("tokenCode", data.data.token);
-    localStorage.setItem("nickName", data.data.phone);
-
-    userInfo();
-    if (fromeGame) {
-      fromeGame = false;
-      location.href = localUrl + "goldegg.html";
-    }
-  }
 
   /**
    * 查询用户余额
@@ -372,7 +323,7 @@ $(function () {
    */
   function getUserCoin(callback) {
     var data = {
-      token: localStorage.getItem("tokenCode"),
+      token: localStorage.getItem("tokenCodeEgg"),
       coinType: "coinKen"
     };
     doAjaxCall(url + "coin/getUserCoin", data, callback);
@@ -386,11 +337,6 @@ $(function () {
     $(".my-gold").text(data.data);
   }
 
-  //用户注册---两次密码一致验证成功
-  function pwdConsistent() {
-    reg_step = 3;
-    stepShow();
-  }
 
   /**
    * 检查用户是否登陆
@@ -399,8 +345,8 @@ $(function () {
    */
   function userInfo() {
     if (
-      localStorage.getItem("tokenCode") != undefined ||
-      localStorage.getItem("tokenCode") != null
+      localStorage.getItem("tokenCodeEgg") != undefined ||
+      localStorage.getItem("tokenCodeEgg") != null
     ) {
       $(".user-center").show();
       $(".user-login").hide();
@@ -422,14 +368,13 @@ $(function () {
    * @param {*} callback
    */
   function doAjaxCall(url, data, callback) {
-    logData(url, data);
     $.ajax(url, {
       data: data,
       dataType: "json",
       type: "post",
       timeout: 30000,
       success: function (data) {
-        logData(url, data);
+        console.log(data);
         if (data.code == 0) {
           callback && callback.call(this, data);
         } else {
@@ -458,20 +403,18 @@ $(function () {
             );
             return;
           }
+          if (data.code === "para.error") {
+            showTips(
+              ".mask_index .tips",
+              "Phone or verCode error"
+            );
+            return;
+          }
           localStorage.clear();
           location.reload();
         }
       },
       error: function (xhr, type, errorThrown) { }
     });
-  }
-
-  /**
-   * 用于日志查看
-   * @param {*} url
-   * @param {*} data
-   */
-  function logData(url, data) {
-    console.log(url + "," + JSON.stringify(data));
   }
 });

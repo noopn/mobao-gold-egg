@@ -174,7 +174,7 @@ $(() => {
         $(".egg-wrap").off("click");
         poxy.ajax("kenegg/go", {
           index: eventUtil.eggIndex,
-          token: localStorage.getItem("tokenCode")
+          token: localStorage.getItem("tokenCodeEgg")
         })
       });
     },
