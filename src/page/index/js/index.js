@@ -7,12 +7,53 @@ import "css/reset.scss";
 import "css/common.scss";
 import "font/iconfont.css";
 import "../css/index.scss";
+import ajaxCallbackSingleton from 'js/ajaxCallback';
+let ajaxCS = ajaxCallbackSingleton.init();
 // if (!(navigator.userAgent.indexOf('Android') > -1) && !/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 //   location.href = url + "geggs";
 // }
 if ((navigator.userAgent.indexOf('Opera Mini') > -1) || Object.prototype.toString.call(window.operamini) ===
   "[object OperaMini]" || !"onresize" in window) {
   location.href = url + "geggs";
+}
+ajaxCS.bindErrorHanding({
+  [`${url}pay/m-pesa`]: {
+    golbal() {
+      console.log(1111)
+      $('.mask_pay .tips').html('Recharge failed! Please top up to 290008 by Lipa na M-PESA').fadeIn();
+    }
+  },
+})
+ajaxCS.bindSuccessHanding({
+  [`${url}pay/m-pesa`](ret) {
+    $('.mask_pay .tips').html('Recharge succeed! Please input your Pin through mpesa menu.thanks').fadeIn();
+  }
+})
+$('.topup-item').click(function () {
+  ajaxCS.send(
+    `${url}pay/m-pesa`,
+    "POST",
+    {
+      token: localStorage.getItem('tokenCodeEgg'),
+      amount: $(this).data('topup')
+    }
+  )
+  $('.mask_pay .tips').html('Waiting...').fadeIn();
+})
+$('.more-gold_pay').click(() => {
+  $('.mask_pay .tips').html('').hide();
+  $('.mask_pay').fadeIn();
+})
+$('.relode-topup').click(function () {
+  location.reload();
+})
+let isNewUser = ret => {
+  if (!ret.free) {
+    $(".free-icon").hide();
+
+  } else {
+    $(".free-icon").show();
+  }
 }
 /*首页相关 --- wyj 2018 05 03 */
 var accountLength = 9; //登陆账号长度
@@ -160,7 +201,8 @@ $(function () {
       data: {
         phone: newUserName,
         verifyCode: verCode,
-        pwd: newPassword
+        pwd: newPassword,
+        from: 'EGGES_H5'
       },
       success: function (ret) {
         ret = $.parseJSON(ret);
@@ -204,21 +246,11 @@ $(function () {
       }
     })
   })
-  //充值按钮
-  $(".more-gold_pay").on("click", function () {
-    if ($(this).hasClass("reCoin")) {
-      //获取余额失败，手动刷新事件
-      getUserCoin(getUserCoinSuccess);
-    } else {
-      //跳到充值
-      $(".mask_pay").fadeIn();
-      console.log("跳到充值地址");
-    }
-  });
+
   $(".logout-btn").on("click", function () {
     $(this).hide();
     localStorage.clear();
-    userInfo();
+    location.reload();
   });
   //进入PK场
   $("#J_gold-egg").on("click", function () {
@@ -324,7 +356,8 @@ $(function () {
   function getUserCoin(callback) {
     var data = {
       token: localStorage.getItem("tokenCodeEgg"),
-      coinType: "coinKen"
+      coinType: "coinKen",
+      service: "GOLDEGGS",
     };
     doAjaxCall(url + "coin/getUserCoin", data, callback);
   }
@@ -335,6 +368,7 @@ $(function () {
    */
   function getUserCoinSuccess(data) {
     $(".my-gold").text(data.data);
+    isNewUser(data)
   }
 
 
@@ -344,6 +378,9 @@ $(function () {
    * 否则，显示登陆按钮
    */
   function userInfo() {
+    if (localStorage.getItem('tokenCodeChallenge')) {
+      localStorage.setItem('tokenCodeEgg', localStorage.getItem('tokenCodeChallenge'));
+    }
     if (
       localStorage.getItem("tokenCodeEgg") != undefined ||
       localStorage.getItem("tokenCodeEgg") != null
@@ -418,3 +455,26 @@ $(function () {
     });
   }
 });
+
+
+ajaxCS.bindSuccessHanding({
+  [`${url}kenegg/winnerMarquee`]({ data }) {
+    let html = '';
+    data.sort(() => .5 - Math.random()).map((item, i) => {
+      html += `<li>${item.phone} ${item.type} ${item.amount}ksh！</li>`;
+    })
+
+    $('#J_lamp-scroll').html(`<ul class ='lamp-item' id ='J_lamp'>${html}</ul><ul class ='lamp-item'>${html}</ul>`);
+    setInterval(() => {
+      if ($('#J_lamp-scroll').position().left < -$('#J_lamp').width()) {
+        $('#J_lamp-scroll').css('left', 0);
+      } else {
+        $('#J_lamp-scroll').css('left', `${$('#J_lamp-scroll').position().left - 1}px`);
+      }
+    }, 20)
+  }
+})
+ajaxCS.send(`${url}kenegg/winnerMarquee`, 'POST', {
+  page: 1,
+  limit: 20
+})

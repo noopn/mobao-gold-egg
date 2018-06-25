@@ -8,7 +8,6 @@ const entry = {
   goldegg: "./src/page/goldegg/js/goldegg.js",
   rank: "./src/page/rank/js/rank.js",
   cash: "./src/page/cash/js/cash.js",
-  test: "./src/page/test/js/test.js",
 };
 const pages = [
   // 用户中心页面
@@ -54,14 +53,7 @@ const pages = [
     filename: "cash.html",
     favicon: ''
   }),
-  new HtmlWebpackPlugin({
-    title: "test",
-    template: "./src/page/test/test.html",
-    // inject: "head",
-    chunks: ['test'],
-    filename: "test.html",
-    favicon: ''
-  }),
+
 ]
 pages.forEach(item => {
   item.options.minify = {

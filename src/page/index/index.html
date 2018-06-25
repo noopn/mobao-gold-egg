@@ -23,6 +23,12 @@
       <div class="logout-btn">
         <i class="iconfont icon-poweroff"></i>
       </div>
+      <div class="race-lamp">
+        <!-- <div class="trmp-box">
+          <img src="./img/lb.png" alt="">
+        </div> -->
+        <div class="lamp-scroll" id="J_lamp-scroll"></div>
+      </div>
       <section class="user-center" style="display: none;">
         <div class="user-header">
           <div class="header-img-box">
@@ -54,7 +60,9 @@
 
       <div class="game-group">
         <div class="game-item ranking" id="J_rank">ranking </div>
-        <div class="game-item start-game " id="J_gold-egg">StartGame</div>
+        <div class="game-item start-game " id="J_gold-egg">StartGame
+          <img src="./img/free.gif" alt="" class="free-icon">
+        </div>
         <a href="./rule.html" class="rule-link">
           <img src="./img/rule.png" alt="">
         </a>
@@ -113,26 +121,40 @@
       <div class="tips"></div>
     </div>
   </div>
-  <div class="mask_pay">
+  <div class="mask_pay mask_index">
     <div class="mask_wrapper">
       <div class="login-wrapper">
         <div class="close_wrapper"></div>
-        <h1>Pay bill
-          <b style="color:#f14165;font-size:.5rem;">290008</b>
-        </h1>
-        <p>You need to recharge at least 50 Ksh or more
-          <br> to your service account.
-          <br> Don't close the window before recharged successfully</p>
-        <div href="javascript:void(0);" class="cancelBtn">Cancel</div>
-
-        <div href="javascript:void(0);" class="loginBtn">Success</div>
-
+        <h1>Blance Top-up</h1>
+        <p class="topup-tit">1. STKPlush</p>
+        <div class='topup-box'>
+          <div class="topup-item" data-topup='50'>
+            <span class="topup-t">Top up</span>
+            <span class="topup-n">50</span>
+          </div>
+          <div class="topup-item" data-topup='100'>
+            <span class="topup-t">Top up</span>
+            <span class="topup-n">100</span>
+          </div>
+          <div class="topup-item" data-topup='150'>
+            <span class="topup-t">Top up</span>
+            <span class="topup-n">150</span>
+          </div>
+          <div class="topup-item" data-topup='200'>
+            <span class="topup-t">Top up</span>
+            <span class="topup-n">200</span>
+          </div>
+        </div>
+        <p class="topup-p">2. Pay bill 290008</p>
+        <p class="topup-p">Recharge at least Ksh 50 or more.</p>
+        <!-- <div href="javascript:void(0);" class="cancelBtn">Cancel</div> -->
+        <!-- <div href="javascript:void(0);" class="loginBtn">Success</div> -->
         <div class="clear"></div>
       </div>
-      <div class="tips">--</div>
+      <div class="tips" style="color: red">--</div>
+      <div class="relode-topup">Success</div>
     </div>
-  </div>
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es5,es6"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es5,es6"></script>
 </body>
 
 </html>

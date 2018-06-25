@@ -1,8 +1,8 @@
 {
-  "_url": "http://10.0.0.155:8088/ken-city-gateway/",
+  "_url": "http://10.0.0.155:8088/ken-challenge-gateway/",
   "url": "http://www.supadollar.co.ke/",
   "polyfill": "https://cdn.polyfill.io/v2/polyfill.min.js",
-  "_localUrl": "http://10.0.0.155:8088/gdeggs/",
+  "_localUrl": "http://10.0.0.155:8088/answer/eggs/",
   "localUrl": "http://www.supadollar.co.ke/gdeggs/",
   "__localUrl": "http://localhost:9000/"
 }

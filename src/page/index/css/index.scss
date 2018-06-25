@@ -14,14 +14,48 @@
     color: $blue;
   }
 }
-
+/* race-lamp*/
+.race-lamp{
+  background: rgba(43,44,53,.7);
+  height: .8rem;
+  margin: 6rem -.5rem .2rem;
+  position: relative;
+  overflow: hidden;
+}
+.lamp-scroll{
+  position: relative;
+  left: 0;
+  white-space: nowrap;
+  padding-left: .7rem;
+}
+.lamp-item{
+  display: inline-block;
+}
+.lamp-item li{
+  display: inline-block;
+  font-size: .4rem;
+  line-height: .8rem;
+  font-weight: bold;
+  color: #ffc860;
+}
+.trmp-box{
+  position: absolute;
+  width: .8rem;
+  top: 0;
+  bottom: 0;
+  background: rgba(43,44,53,.7);
+  z-index: 1;
+}
+.trmp-box img{
+  height: 100%;
+}
 .user-login {
   position: relative;
   box-sizing: border-box;
   background: rgba(255, 255, 255, 1);
   padding: 0.6rem 0.5rem;
   border-radius: 0.4rem;
-  margin-top: 6rem;
+  // margin-top: 6rem;
 }
 
 .user-login #login,.mode{
@@ -62,7 +96,7 @@
   background: rgba(0, 0, 0, 0.6);
   padding: 0.3rem 0.5rem 0.3rem 0.5rem;
   border-radius: 0.4rem;
-  margin-top: 7.5rem;
+  // margin-top: 7.5rem;
 }
 
 .header-img-box {
@@ -407,7 +441,14 @@
   color: #fff;
   word-break: break-word;
 }
-
+.mask_pay .login-wrapper .topup-tit, .mask_pay .login-wrapper .topup-p {
+  padding: .1rem 0rem .1rem .8rem;
+  text-align: left;
+}
+.mask_pay .login-wrapper p span {
+  margin-right: 0.1rem;
+  color: #57a3f3;
+}
 .mask_pay .login-wrapper .loginBtn {
   background: #d23e60;
   width: 70%;
@@ -436,4 +477,40 @@
   padding: .1rem 0;
   text-decoration: underline;
   color: #fff;
+}
+.topup-item{
+  display: inline-block;
+  width: 1.5rem;
+  border: 1px solid #999;
+  margin: .08rem;
+  background: #ff5c00;
+}
+.topup-t{
+  padding:.1rem;
+  color: #fff;
+}
+.topup-n{
+  font-size: .7rem;
+  font-weight: bold;
+  color: #fff;
+}
+.relode-topup{
+  position: absolute;
+  bottom: -1rem;
+  width: 60%;
+  background: #d23e60;
+  color: #fff;
+  left: 50%;
+  margin-left: -30%;
+  font-size: .5rem;
+  padding: .2rem 0;
+  border-radius: 1rem;
+}
+.free-icon{
+  position: absolute;
+  width: 3rem;
+  height: 1.5rem;
+  left: -.8rem;
+  top: -0.2rem;
+  transform: rotate(-45deg);
 }
