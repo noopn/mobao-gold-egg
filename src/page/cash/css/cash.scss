@@ -1,0 +1,113 @@
+.page-cash{
+  background: url(../../../common/img/gold-egg.jpg) center no-repeat;
+  background-size: cover;
+}
+.cash-box {
+  text-align: center;
+  width: 9rem;
+  height: 8rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4rem;
+  margin: auto;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  background: url(../../../common/img/pop-bg.png) left top no-repeat;
+  background-size: cover;
+}
+.notice-cash{
+  display: none;
+  margin: 0 .5rem;
+  padding-left: 1rem;
+  height: 1rem;
+  line-height: .6rem;
+  background: url(../../../common/img/close.png) left center no-repeat;
+  background-size: .7rem;
+  font-size: .3rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.success-cash{
+  display: none;
+  position: absolute;
+  margin: 0 .5rem;
+  padding-left: 1rem;
+  height: 1rem;
+  background: url(../../../common/img/success-icon.png) left center no-repeat;
+  background-size: .7rem;
+  line-height: .6rem;
+  font-size: .4rem;
+  font-weight: bold;
+}
+
+.cash-box h3 {
+  font-size: 0.4rem;
+  color: #ffd700;
+  font-weight: bold;
+  text-align: center;
+  margin:0.7rem .5rem .2rem;
+}
+
+.cash-tit {
+  text-align: center;
+  font-size: 0.6rem;
+  padding-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffd700;
+}
+
+.cash-input {
+  display: inline-block;
+  width: 80%;
+  padding: 0.1rem 0.2rem;
+  outline: none;
+  border: 1px solid #d2d2d2;
+  line-height: 0.8rem;
+  font-size: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.cash-btn {
+  display: inline-block;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 0.5rem;
+  width: 40%;
+  padding: .2rem 0;
+  margin:0 1%;
+  margin-top: 0.5rem;
+  border-radius: .5rem;
+}
+.cash-btn.conf{
+  background:#d23e60;
+}
+.cash-btn.hist{
+  background: #35a5f1;
+}
+.fiel-notice{
+  position: absolute;
+  top: 12rem;
+  border:1px solid #fff;
+  left: .5rem;
+  right: .5rem;
+  margin: 0 auto;
+  padding: .2rem .5rem;
+  border-radius: .4rem;
+}
+.fiel-notice legend span{
+  display: inline-block;
+  padding: 0 .5rem;
+  font-size: .6rem;
+  color: #fff;
+}
+.fiel-notice p{
+  font-size: .4rem;
+  color: #fff;
+}
