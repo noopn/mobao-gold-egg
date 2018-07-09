@@ -1,160 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="index-html">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="x-dns-prefetch-control" content="on" />
-  <meta name="viewport" content="width=320.1,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
-  <meta name="apple-mobile-web-app-title" content="Music" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="apple-touch-fullscreen" content="yes" />
-  <meta name="full-screen" content="yes" />
-  <meta name="x5-fullscreen" content="true" />
-  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <meta charset="UTF-8">
+  <meta charset=utf-8>
+  <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+  <meta http-equiv=x-dns-prefetch-control content=on>
+  <meta name=viewport content="width=320.1,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+  <meta name=apple-mobile-web-app-title content=Music>
+  <meta name=apple-mobile-web-app-capable content=yes>
+  <meta name=format-detection content="telephone=no">
+  <meta name=apple-mobile-web-app-status-bar-style content=black>
+  <meta name=apple-touch-fullscreen content=yes>
+  <meta name=full-screen content=yes>
+  <meta name=x5-fullscreen content=true>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script>
+      location.href = 'http://www.supadollar.co.ke/gdeggs';
+    </script> -->
+  <script>
+    if ((navigator.userAgent.indexOf('Opera Mini') > -1) || Object.prototype.toString.call(window.operamini) ===
+      "[object OperaMini]" || !"onresize" in window) {
+      location.href = "http://www.supadollar.co.ke/eggs";
+    }
+    if (!(navigator.userAgent.indexOf('Android') > -1) && !/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+      location.href = url + "http://www.supadollar.co.ke/geggs";
+    }
+  </script>
+  <script src=http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js></script>
 
 </head>
 
-<body>
-  <div class="page page-main">
-    <div class="container">
-      <div class="logout-btn">
-        <i class="iconfont icon-poweroff"></i>
-      </div>
-      <div class="race-lamp">
-        <!-- <div class="trmp-box">
-          <img src="./img/lb.png" alt="">
-        </div> -->
-        <div class="lamp-scroll" id="J_lamp-scroll"></div>
-      </div>
-      <section class="user-center" style="display: none;">
-        <div class="user-header">
-          <div class="header-img-box">
-            <img src="./img/user-header.jpg" alt="" class="user-header-img" />
-          </div>
-          <div class="user-name">nickName</div>
-        </div>
-        <div class="gold-box">
-          <img src="./img/icon.png" alt="" />
-          <span class="my-gold">-</span>
-        </div>
-        <!-- <div class="level-a logout ">log out</div> -->
-        <div class="level-a get-cash">Withdraw</div>
-        <div class="level-a more-gold_pay">Top up</div>
-      </section>
-      <section class="user-login">
-        <div class="mode" id="J_mode">Light Site</div>
-        <div href="javascript:void(0);" id="login">Login & Register</div>
-        <span>Login to win
-          <b style="font-size:.5rem;">20</b> to
-          <b style="font-size:.5rem;">500,000</b> Ksh</span>
-        <div class="clear"></div>
-        <div class="rule-sm">
-          <h2 class="rule-tit">Instruction:</h2>
-          <p>We have FIVE GOLDEN EGGs, 3 of them have a PRIZE inside ranging from Ksh 20 to Ksh 500,000.</br>
-            A fee of 20 bob is charged for every egg you choose to open.</p>
-        </div>
-      </section>
-
-      <div class="game-group">
-        <div class="game-item ranking" id="J_rank">ranking </div>
-        <div class="game-item start-game " id="J_gold-egg">StartGame
-          <img src="./img/free.gif" alt="" class="free-icon">
-        </div>
-        <a href="./rule.html" class="rule-link">
-          <img src="./img/rule.png" alt="">
-        </a>
-      </div>
-      <img src="./img/egg-img.png" alt="egg" class="main-egg-img" />
+<body class="index-bg">
+  <header class="header" style="padding-top:2rem;">
+    <img src="../../common/img/challenge.png" alt="冲顶大会" class="header-img" style="width:80%;">
+  </header>
+  <div class="progress">
+    <div class="progressbar"></div>
+    <div class="progresstext">
+      <span class="current"></span>
     </div>
+    <div class="progresstextSub">Resources loading...</div>
   </div>
-  <div class="mask_index" id='index-log1' style="display: none">
-    <div class="mask_wrapper">
-      <div class="login-wrapper">
-        <div class="close_wrapper"></div>
-        <img src="./img/login-tit.png" alt="" class="login-logo">
-        <div id='J_step'>
-          <input type="text" class="login-input userName" placeholder="Enter phone number" autocomplete="off" />
-          <input type="password" class="login-input password" placeholder="Enter password" autocomplete="off" />
-          <div class="index-btn" id="userlogin">Login</div>
-
-          <div id="register">Greate my account</div>
-          <div id='goGetPassWord'>Forgot my password >></div>
-        </div>
-      </div>
-      <div class="tips"></div>
-    </div>
-  </div>
-  <div class="mask_index" id='index-log2' style="display: none">
-    <div class="mask_wrapper">
-      <div class="login-wrapper">
-        <div class="close_wrapper"></div>
-        <h1>Create Account</h1>
-        <div id='J_step'>
-          <input type="text" class="login-input newUserName" placeholder="Enter phone number" autocomplete="off" />
-          <input type="text" class="login-input newPassword" placeholder="8-16 number or letters" autocomplete="off" />
-          <input type="text" class="verCode" placeholder="Verification code" autocomplete="off" />
-          <div href="javascript:void(0);" class="verCodeSendBtn">Get</div>
-          <div class="index-btn" id="toregister">Sign Up</div>
-          <div style="color: #fff;margin: .2rem auto;width: 40%;text-decoration: underline;" class="tologin">Log in</div>
-        </div>
-      </div>
-      <div class="tips"></div>
-    </div>
-  </div>
-  <div class="mask_index" id='index-log3' style="display: none">
-    <div class="mask_wrapper">
-      <div class="login-wrapper">
-        <div class="close_wrapper"></div>
-        <h1>Find Password</h1>
-        <div id='J_step'>
-          <input type="text" class="login-input getUserName" placeholder="Enter phone number" autocomplete="off" />
-          <input type="text" class="login-input getPassword" placeholder="8-16 number or letters" autocomplete="off" />
-          <input type="text" class="verCode" placeholder="Verification code" autocomplete="off" />
-          <div href="javascript:void(0);" class="verCodeSendBtn" data-forgot="true">Get</div>
-          <div class="index-btn" id="getNewPassword">Submit</div>
-          <div style="color: #fff;margin: .2rem auto;width: 40%;text-decoration: underline;" class="tologin">Log in</div>
-        </div>
-      </div>
-      <div class="tips"></div>
-    </div>
-  </div>
-  <div class="mask_pay mask_index">
-    <div class="mask_wrapper">
-      <div class="login-wrapper">
-        <div class="close_wrapper"></div>
-        <h1>Blance Top-up</h1>
-        <p class="topup-tit">1. STKPlush</p>
-        <div class='topup-box'>
-          <div class="topup-item" data-topup='50'>
-            <span class="topup-t">Top up</span>
-            <span class="topup-n">50</span>
-          </div>
-          <div class="topup-item" data-topup='100'>
-            <span class="topup-t">Top up</span>
-            <span class="topup-n">100</span>
-          </div>
-          <div class="topup-item" data-topup='150'>
-            <span class="topup-t">Top up</span>
-            <span class="topup-n">150</span>
-          </div>
-          <div class="topup-item" data-topup='200'>
-            <span class="topup-t">Top up</span>
-            <span class="topup-n">200</span>
-          </div>
-        </div>
-        <p class="topup-p">2. Pay bill 290008</p>
-        <p class="topup-p">Recharge at least Ksh 50 or more.</p>
-        <!-- <div href="javascript:void(0);" class="cancelBtn">Cancel</div> -->
-        <!-- <div href="javascript:void(0);" class="loginBtn">Success</div> -->
-        <div class="clear"></div>
-      </div>
-      <div class="tips" style="color: red">--</div>
-      <div class="relode-topup">Success</div>
-    </div>
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es5,es6"></script>
 </body>
 
 </html>

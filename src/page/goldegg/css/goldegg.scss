@@ -6,7 +6,7 @@
 }
 
 .goldegg-wrap {
-  height: 17rem;
+  height: 19rem;
 }
 
 .game-box {
@@ -24,11 +24,12 @@
     font-size: .6rem;
     color: #fff;
     font-weight: bold;
-    width: 2.4rem;
+    width: 4rem;
     text-align: center;
     line-height: .8rem;
     height: .8rem;
     border-radius: .2rem;
+    padding: .1rem 0;
     text-decoration: underline;
   }
   .ready-go {
@@ -46,9 +47,11 @@
     background: $pink;
   }
   .game-home {
-    left: .5rem;
-    top: -.7rem;
-    background: $blue;
+    left: 0;
+    right: 0rem;
+    background: #35a5f1;
+    bottom: -1rem;
+    margin: 0 auto;
   }
 }
 
@@ -85,12 +88,13 @@
   font-weight: bold;
   font-size: .5rem;
 }
-
+.result-egg-p.red{
+  color: $red;
+}
 .egg-num {
   position: absolute;
   font-size: .6rem;
   font-weight: bold;
-  color: #fff;
   left: 1.2rem;
   top: .7rem;
   z-index: 1;
@@ -146,7 +150,7 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 4rem;
+  top: 1rem;
   &-p {
     font-size: .6rem;
     text-align: center;
@@ -182,4 +186,35 @@
     font-size: .7rem;
     color: $pink;
   }
+}
+
+
+// result-box
+.result-content{
+  display: none;
+  width: 8rem;
+  background: rgba(5, 8, 11, 0.6);
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  border: 1px solid #333;
+  
+}
+.again-btn{
+  font-size: .6rem;
+  width: 4rem;
+  text-align: center;
+  padding: .1rem 0;
+  color: #fff;
+  margin: .1rem auto .25rem;
+  border-radius: .2rem;
+  background: $pink;
+}
+.result-box{
+  padding: .25rem 0;
+  font-size: .5rem;
+  color: #fff;
 }

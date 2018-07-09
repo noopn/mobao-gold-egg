@@ -16,7 +16,7 @@ $(() => {
       type: "post",
       url: url + "challenge/dailyRank",
       data: {
-        token: localStorage.getItem("tokenCodeEgg"),
+        token: localStorage.getItem("tokenCode"),
         page: 1,
         limit: 10
       },
@@ -66,6 +66,6 @@ $(() => {
       <span class="rank-span rank-money"><img src="'+require("../img/icon.png")+'"> ' + my.amount + '</span>';
     $(".my-state").html(html);
   }, function (respose) {
-    location.replace(localUrl);
+    location.replace(`${localUrl}main.html`);
   })
 })
