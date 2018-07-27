@@ -66,6 +66,6 @@ $(() => {
       <span class="rank-span rank-money"><img src="'+require("../img/icon.png")+'"> ' + my.amount + '</span>';
     $(".my-state").html(html);
   }, function (respose) {
-    location.replace(`${localUrl}main.html`);
+    location.replace(`${localUrl}goldegg.html`);
   })
 })

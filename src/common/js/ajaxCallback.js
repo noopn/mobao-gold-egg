@@ -43,8 +43,8 @@ let ajaxCallbackSingleton = (() => {
         type: type,
         data: data,
         success(ret) {
+          console.log(ret)
           ret = $.parseJSON(ret);
-          console.log(url, ret)
           if (ret.code === '0') {
             _this.successHanding(url, ret,callbackData);
           } else {

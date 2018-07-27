@@ -47,7 +47,7 @@ var loader = new resLoader({
   onComplete: function (total) {
     $(".progresstextSub").text("Resources loaded success!");
     setTimeout(function () {
-      location.href = localUrl + 'main.html';
+      location.href = `${localUrl}goldegg.html`;
     }, 1000);
   }
 });

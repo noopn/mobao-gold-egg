@@ -1,12 +1,12 @@
 {
-  "_________________url": "http://10.0.0.155:8088/ken-challenge-gateway/",
-  "url": "http://www.supadollar.co.ke/",
+  "url": "http://10.0.0.155:8088/ken-challenge-gateway/",
+  "_________________url": "http://www.supadollar.co.ke/",
 
 
 
   "_________________localUrl": "http://www.supadollar.co.ke/gdeggs/", 
-  "__________________localUrl": "http://10.0.0.155:8088/answer/eggs/",
-  "localUrl": "http://localhost:9000/",
+  "localUrl": "http://10.0.0.155:8088/answer/eggs/",
+  "__________________localUrl": "http://localhost:9000/",
 
   "simpleUrl":"http://www.supadollar.co.ke/eggs/",
   "polyfill": "https://cdn.polyfill.io/v2/polyfill.min.js"

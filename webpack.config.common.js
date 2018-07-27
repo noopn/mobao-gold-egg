@@ -8,7 +8,8 @@ const entry = {
   goldegg: "./src/page/goldegg/js/goldegg.js",
   rank: "./src/page/rank/js/rank.js",
   cash: "./src/page/cash/js/cash.js",
-  main: "./src/page/main/js/main.js",
+  invite: "./src/page/invite/js/invite.js",
+  // main: "./src/page/main/js/main.js",
 };
 const pages = [
   // 用户中心页面
@@ -54,14 +55,23 @@ const pages = [
     filename: "cash.html",
     favicon: ''
   }),
+  // 邀请
   new HtmlWebpackPlugin({
-    title: "GoldEggs",
-    template: "./src/page/main/main.html",
+    title: "Invite",
+    template: "./src/page/invite/invite.html",
     // inject: "head",
-    chunks: ["commons", "main", "styles"],
-    filename: "main.html",
+    chunks: ["commons", "invite", "styles"],
+    filename: "invite.html",
     favicon: ''
-  })
+  }),
+  // new HtmlWebpackPlugin({
+  //   title: "GoldEggs",
+  //   template: "./src/page/main/main.html",
+  //   // inject: "head",
+  //   chunks: ["commons", "main", "styles"],
+  //   filename: "main.html",
+  //   favicon: ''
+  // })
 ]
 pages.forEach(item => {
   item.options.minify = {
